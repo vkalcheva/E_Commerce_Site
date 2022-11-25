@@ -21,3 +21,13 @@ def index(request):
         'product_objects': product_objects,
     }
     return render(request, 'shop/index.html', context)
+
+
+def detail(request, id):
+    product_object = Product.objects.get(id=id)
+
+    context = {
+        'product_object': product_object,
+    }
+
+    return render(request, 'shop/details.html', context)
